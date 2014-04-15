@@ -21,9 +21,9 @@ group :development do
 end
 
 group :test, :development do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl'
   gem 'pry'
 end
 
