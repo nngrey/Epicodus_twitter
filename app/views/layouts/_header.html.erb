@@ -9,9 +9,14 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"><a href="#">Sign In</a></li>
-      <li class="active"><a href="#">Sign Out</a></li>
-      <li class="active"><a href="#">Sign Up</a></li>
+      <% if current_user %>
+        <li class="active"><a href="#">Logged in as <%= current_user.handle %></a></li>
+        <li class="active"><%= link_to "Log Out", logout_path %></li>
+      <% else %>
+        <li class="active"><%= link_to "Sign Up", signup_path %></li>
+        <li class="active"><%= link_to "Log In", login_path %></li>
+      <% end %>
+
       <li class="has-dropdown">
         <a href="#">Right Button Dropdown</a>
         <ul class="dropdown">
