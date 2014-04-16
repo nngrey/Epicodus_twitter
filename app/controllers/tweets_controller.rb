@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @tweet = Tweet.new
   end
 
   def new
@@ -11,7 +12,13 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to tweets_path
+      respond_to do |format|
+      format.html { redirect_to tweets_path }
+      format.js
+    end
+    # @tweet = Tweet.new(tweet_params)
+    # if @tweet.save
+    #   redirect_to tweets_path
     else
       render 'new'
     end
