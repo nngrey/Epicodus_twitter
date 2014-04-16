@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
 
   after_create :send_welcome_message #, other callbacks..
 
-
-private
   def send_welcome_message
    UserMailer.signup_confirmation(self).deliver
   end
