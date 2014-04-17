@@ -13,12 +13,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       respond_to do |format|
-      format.html { redirect_to tweets_path }
-      format.js
-    end
-    # @tweet = Tweet.new(tweet_params)
-    # if @tweet.save
-    #   redirect_to tweets_path
+        format.html { redirect_to tweets_path }
+        format.js
+      end
     else
       render 'new'
     end
